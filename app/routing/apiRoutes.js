@@ -6,6 +6,7 @@ module.exports = function (app) {
       res.json(friends)
     })
     .post(function (req, res) {
+      res.send('POST request to api')
       friends.push(req.body)
     })
 }
