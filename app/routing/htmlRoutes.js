@@ -11,7 +11,7 @@ router.use(function timeLog (req, res, next) {
 router.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, '../public/home.html'))
 })
-// define the about route
+// define the survey route
 router.get('/survey', function (req, res) {
   res.sendFile(path.join(__dirname, '../public/survey.html'))
 })
