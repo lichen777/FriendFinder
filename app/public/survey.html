@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Friend Finder</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container well well-lg">
+        <h2>Survey Questions</h2>
+        <form data-toggle="validator" role="form">
+            <h3>About You</h3>
+            <div class="form-group">
+                <label>Name (Required)</label>
+                <input type="text" class="form-control" id="nameInput" required>
+            </div>
+            <div class="form-group">
+                <label>Link to Photo Image (Required)</label>
+                <input type="url" class="form-control" id="photoLinkInput" required>
+            </div>
+            <div class="form-group">
+                <label>Question 1</label>
+                <p>Your mind is always buzzing with unexplored ideas and plans.</p>
+                <select class="custom-select" id="formControlSelect1" required>
+                    <option value="" >Select an Option</option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Question 2</label>
+                <p>Generally speaking, you rely more on your experience than your imagination.</p>
+                <select class="custom-select" id="formControlSelect2" required>
+                    <option value="" >Select an Option</option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Question 3</label>
+                <p>You find it easy to stay relaxed and focused even when there is some pressure.</p>
+                <select class="custom-select" id="formControlSelect3" required>
+                    <option value="" >Select an Option</option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Question 4</label>
+                <p>You rarely do something just out of sheer curiosity.</p>
+                <select class="custom-select" id="formControlSelect4" required>
+                    <option value="" >Select an Option</option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Question 5</label>
+                <p>People can rarely upset you.</p>
+                <select class="custom-select" id="formControlSelect5" required>
+                    <option value="" >Select an Option</option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Question 6</label>
+                <p>It is often difficult for you to relate to other people’s feelings.</p>
+                <select class="custom-select" id="formControlSelect6" required>
+                    <option value="" >Select an Option</option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Question 7</label>
+                <p>In a discussion, truth should be more important than people’s sensitivities.</p>
+                <select class="custom-select" id="formControlSelect7" required>
+                    <option value="" >Select an Option</option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Question 8</label>
+                <p>You rarely get carried away by fantasies and ideas.</p>
+                <select class="custom-select" id="formControlSelect8" required>
+                    <option value="" >Select an Option</option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Question 9</label>
+                <p>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</p>
+                <select class="custom-select" id="formControlSelect9" required>
+                    <option value="" >Select an Option</option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Question 10</label>
+                <p>You feel more energetic after spending time with a group of people.</p>
+                <select class="custom-select" id="formControlSelect10" required>
+                    <option value="" >Select an Option</option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary mb-2"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Submit</button>
+        </form>
+    </div> <!-- /container -->
+
+    <div class="container">
+
+        <footer>
+            <div>
+                <a href="./api/friends">API Friends List</a> |
+                <a href="https://github.com/lichen777/FriendFinder#readme ">GitHub Repo</a>
+            </div>
+            <p>&copy; Chen Li</p>
+        </footer>
+    </div>
+    <!-- /container -->
+
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script>
+        var handleSubmit = function (data) {
+            $.post('/api/friends', data)
+                .done(function (res) {
+                    console.log('Data loaded: ' + res)
+                })
+        }
+        
+        $('button').on('click', function (event) {
+            event.preventDefault()
+            var scores = []
+            scores.push($('#formControlSelect1').val())
+            scores.push($('#formControlSelect2').val())
+            scores.push($('#formControlSelect3').val())
+            scores.push($('#formControlSelect4').val())
+            scores.push($('#formControlSelect5').val())
+            scores.push($('#formControlSelect6').val())
+            scores.push($('#formControlSelect7').val())
+            scores.push($('#formControlSelect8').val())
+            scores.push($('#formControlSelect9').val())
+            scores.push($('#formControlSelect10').val())
+            var data = {
+                'name': $('#nameInput').val(),
+                'photo': $('#photoLinkInput').val(),
+                'scores': scores
+            }
+            handleSubmit($.param(data, true))
+        })
+    </script>
+
+
+</body>
+
+
+</html>
