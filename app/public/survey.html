@@ -23,6 +23,11 @@
                 <label>Link to Photo Image (Required)</label>
                 <input type="url" class="form-control" id="photoLinkInput" required>
             </div>
+            <div id="dialog">
+                <h2>Best Match</h2>
+                <div id="matchName"></div>
+                <div id="matchPhoto"></div>
+            </div>
             <div class="form-group">
                 <label>Question 1</label>
                 <p>Your mind is always buzzing with unexplored ideas and plans.</p>
@@ -161,29 +166,49 @@
 
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
-    <script>
+    <script>      
+        
+
         var handleSubmit = function (data) {
             $.post('/api/friends', data)
                 .done(function (res) {
                     console.log('Data loaded: ' + res)
                 })
+            $.get("api/match", function (data) {
+                $('#matchName').text(data['name'])
+                var img = $('<img id="dynamic">')
+                img.attr('src', data['photo'])
+                img.appendTo('#matchPhoto')
+                $(function () {
+                    $("#dialog").dialog({
+                        autoOpen: false,
+                        show: {
+                            effect: "blind",
+                            duration: 100
+                        },
+                        modal: true,
+                        buttons: {
+                            Ok: function () {
+                                $(this).dialog("close");
+                            }
+                        }
+                    })
+                    $("#dialog").dialog("open")
+                })
+            })
         }
         
         $('button').on('click', function (event) {
             event.preventDefault()
             var scores = []
-            scores.push($('#formControlSelect1').val())
-            scores.push($('#formControlSelect2').val())
-            scores.push($('#formControlSelect3').val())
-            scores.push($('#formControlSelect4').val())
-            scores.push($('#formControlSelect5').val())
-            scores.push($('#formControlSelect6').val())
-            scores.push($('#formControlSelect7').val())
-            scores.push($('#formControlSelect8').val())
-            scores.push($('#formControlSelect9').val())
-            scores.push($('#formControlSelect10').val())
+            for (var i = 1; i <= 10; i++) {
+                var form = '#formControlSelect' + i
+                scores.push($(form).val())
+            }
+
             var data = {
                 'name': $('#nameInput').val(),
                 'photo': $('#photoLinkInput').val(),
