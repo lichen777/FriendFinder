@@ -23,11 +23,6 @@
                 <label>Link to Photo Image (Required)</label>
                 <input type="url" class="form-control" id="photoLinkInput" required>
             </div>
-            <div id="dialog">
-                <h2>Best Match</h2>
-                <div id="matchName"></div>
-                <div id="matchPhoto"></div>
-            </div>
             <div class="form-group">
                 <label>Question 1</label>
                 <p>Your mind is always buzzing with unexplored ideas and plans.</p>
@@ -152,6 +147,29 @@
         </form>
     </div> <!-- /container -->
 
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-toggle="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h3 class="modal-title">Best Match</h3>
+                </div>
+                <div class="modal-body">
+                    <div id="matchName"></div>
+                    <div>
+                        <img src="" id="matchPhoto">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-toggle="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
 
         <footer>
@@ -179,25 +197,8 @@
                 })
             $.get("api/match", function (data) {
                 $('#matchName').text(data['name'])
-                var img = $('<img id="dynamic">')
-                img.attr('src', data['photo'])
-                img.appendTo('#matchPhoto')
-                $(function () {
-                    $("#dialog").dialog({
-                        autoOpen: false,
-                        show: {
-                            effect: "blind",
-                            duration: 100
-                        },
-                        modal: true,
-                        buttons: {
-                            Ok: function () {
-                                $(this).dialog("close");
-                            }
-                        }
-                    })
-                    $("#dialog").dialog("open")
-                })
+                $("#matchPhoto").attr('src', data['photo'])
+                $('#myModal').modal('toggle')       
             })
         }
         
