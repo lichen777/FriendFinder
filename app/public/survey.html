@@ -143,7 +143,7 @@
                     <option value="5">5 (Strongly Agree)</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary mb-2"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Submit</button>
+            <button type="submit" id="submitBtn" class="btn btn-primary mb-2"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Submit</button>
         </form>
     </div> <!-- /container -->
 
@@ -152,7 +152,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-toggle="modal" aria-label="Close">
+                    <button type="button" class="close" data-toggle="modal" data-target="#myModal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h3 class="modal-title">Best Match</h3>
@@ -164,7 +164,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-toggle="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Close</button>
                 </div>
             </div>
         </div>
@@ -184,25 +184,26 @@
 
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
-    <script>      
-        
+    <script>
+        $('#myModal').on('hidden.bs.modal', function () {
+            location.reload()
+        })
 
         var handleSubmit = function (data) {
             $.post('/api/friends', data)
                 .done(function (res) {
                     console.log('Data loaded: ' + res)
                 })
-            $.get("api/match", function (data) {
+            $.get('api/match', function (data) {
                 $('#matchName').text(data['name'])
-                $("#matchPhoto").attr('src', data['photo'])
-                $('#myModal').modal('toggle')       
+                $('#matchPhoto').attr('src', data['photo'])
+                $('#myModal').modal('toggle')
             })
         }
-        
-        $('button').on('click', function (event) {
+
+        $('#submitBtn').on('click', function (event) {
             event.preventDefault()
             var scores = []
             for (var i = 1; i <= 10; i++) {
@@ -217,7 +218,9 @@
             }
             handleSubmit($.param(data, true))
         })
+
     </script>
+
 
 
 </body>

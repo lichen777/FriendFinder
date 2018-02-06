@@ -1,4 +1,5 @@
 var path = require('path')
+var express = require('express')
 
 module.exports = function (router) {
   // middleware that is specific to this router
@@ -6,6 +7,7 @@ module.exports = function (router) {
     console.log('Time: ', Date.now())
     next()
   })
+  
   // define the survey route
   router.get('/survey', function (req, res) {
     res.sendFile(path.join(__dirname, '../public/survey.html'))
@@ -15,7 +17,7 @@ module.exports = function (router) {
     res.sendFile(path.join(__dirname, '../public/home.html'))
   })
 
-  router.get('*', function (req, res) {
+  router.get('/*', function (req, res) {
     res.redirect('/')
   })
 }
