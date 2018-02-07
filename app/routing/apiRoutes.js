@@ -1,4 +1,5 @@
 var friends = require('../data/friends')
+var database = require('../data/friendsDB')
 var findMatch = require('../src/match')
 var match = {
   'name': 'Not Found',
@@ -9,6 +10,7 @@ module.exports = function (app) {
   app.route('/api/friends')
     .get(function (req, res) {
       res.json(friends)
+      database.sync()
     })
     .post(function (req, res) {
       res.send('POST request to api')
