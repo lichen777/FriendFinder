@@ -1,6 +1,6 @@
 var friends = [{
   'name': 'Ahmed',
-  'photo': 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg',
+  'photo': 'http://lorempixel.com/400/200/people/',
   'scores': [
     "5",
     "1",
